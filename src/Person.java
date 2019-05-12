@@ -18,12 +18,79 @@ public class Person
 	public boolean isStudent;
 	public boolean isIncarcerated;
 	
-	public Person[] children;
+	
 	public Person father;
 	public Person mother;
+	public Person[] children;
+	public Person[] siblings;
 	
+	
+	
+	public Phone[] getPhone() {
+		return phone;
+	}
+
+
+
+	public void setPhone(Phone[] phone) {
+		this.phone = phone;
+	}
+
+
+
+	public Computer[] getComputer() {
+		return computer;
+	}
+
+
+
+	public void setComputer(Computer[] computer) {
+		this.computer = computer;
+	}
+
+
+
+	public String[] getFacebookProfileURL() {
+		return facebookProfileURL;
+	}
+
+
+
+	public void setFacebookProfileURL(String[] facebookProfileURL) {
+		this.facebookProfileURL = facebookProfileURL;
+	}
+
+
+
+	public String[] getTwitterProfileURL() {
+		return twitterProfileURL;
+	}
+
+
+
+	public void setTwitterProfileURL(String[] twitterProfileURL) {
+		this.twitterProfileURL = twitterProfileURL;
+	}
+
+
+
+	public String[] getInstagramProfileURL() {
+		return instagramProfileURL;
+	}
+
+
+
+	public void setInstagramProfileURL(String[] instagramProfileURL) {
+		this.instagramProfileURL = instagramProfileURL;
+	}
+
 	public Phone[] phone;
 	public Computer[] computer;
+	
+	public String[] facebookProfileURL;
+	public String[] twitterProfileURL;
+	public String[] instagramProfileURL;
+	
 	
 	
 	
