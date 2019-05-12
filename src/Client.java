@@ -34,8 +34,8 @@ public class Client
 		if(args.length == 0)
 		{
 			
-			host = "192.168.1.33"; //Change to the IP of the Server the Client should connect to.
-			portNumber = 3301; //This should reflect the port that the Server is listening on.
+			host = "66.191.191.139"; //Change to the IP of the Server the Client should connect to.
+			portNumber = 3302; //This should reflect the port that the Server is listening on.
 			
 		}
 		else
@@ -54,7 +54,7 @@ public class Client
 			{
 				
 				System.out.println("Error assigning port number. Defaulting to port 3301.");
-				portNumber = 3301; //As above.
+				portNumber = 3302; //As above.
 				
 			}
 			
