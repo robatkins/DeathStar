@@ -4,6 +4,7 @@ public class Person
 	public int age;
 	public int BirthYear;
 	
+	public char gender;
 	
 	public String FirstName;
 	public String MiddleName;
@@ -20,6 +21,10 @@ public class Person
 	public Person[] children;
 	public Person father;
 	public Person mother;
+	
+	public Phone[] phone;
+	public Computer[] computer;
+	
 	
 	
     
