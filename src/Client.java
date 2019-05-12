@@ -34,7 +34,7 @@ public class Client
 		if(args.length == 0)
 		{
 			
-			host = "66.191.191.139"; //Change to the IP of the Server the Client should connect to.
+			host = ""; //Change to the IP of the Server the Client should connect to.
 			portNumber = 3302; //This should reflect the port that the Server is listening on.
 			
 		}
