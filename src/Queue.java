@@ -1,4 +1,4 @@
-public class Queue<QueueItem> 
+public class Queue<QueueItem> implements IQueue<QueueItem>
 {
 	
 	private class QueueNode
