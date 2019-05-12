@@ -17,7 +17,21 @@ public class Person
 
     }
     
-    public void setFirstName(String x)
+    public Person(int age, String firstName, String middleName, String lastName, boolean isMarried, boolean isDead,
+			boolean isEmployed, int numberOfChildren, int numberOfPets) {
+		super();
+		this.age = age;
+		FirstName = firstName;
+		MiddleName = middleName;
+		LastName = lastName;
+		IsMarried = isMarried;
+		IsDead = isDead;
+		IsEmployed = isEmployed;
+		NumberOfChildren = numberOfChildren;
+		NumberOfPets = numberOfPets;
+	}
+
+	public void setFirstName(String x)
     {
     	this.FirstName = x;
     }
