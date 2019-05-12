@@ -106,6 +106,17 @@ public class Queue<QueueItem>
 		
 	}
 	
+	public QueueItem GetFirstItem()
+	{
+		
+		
+	
+		QueueItem QI;
+		QI = Front.Link.Content;
+		return QI;
+		
+	}
+	
 	
 
 }
