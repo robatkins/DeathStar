@@ -2,12 +2,23 @@
 public class Person 
 {
 	public int age;
+	
 	public String FirstName;
 	public String MiddleName;
 	public String LastName;
+	
 	public boolean IsMarried;
 	public boolean IsDead;
 	public boolean IsEmployed;
+	public boolean IsLawEnforcement;
+	public boolean isMilitary;
+	public boolean isStudent;
+	public boolean isIncarcerated;
+	
+	public Person[] children;
+	public Person father;
+	public Person mother;
+	
 	
     
     public Person() 
