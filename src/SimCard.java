@@ -6,8 +6,10 @@ public class SimCard
 	
 	private String imsi;
 	private String secretkey;
-	private Strink puk;
+	private String puk;
 	private String challenge;
 	private String response;
+	
+	private Phone phone;
 
 }
