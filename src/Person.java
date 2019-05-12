@@ -2,6 +2,8 @@
 public class Person 
 {
 	public int age;
+	public int BirthYear;
+	
 	
 	public String FirstName;
 	public String MiddleName;
