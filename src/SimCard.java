@@ -9,5 +9,7 @@ public class SimCard
 	private String puk;
 	private String challenge;
 	private String response;
+	
+	private Phone phone;
 
 }
