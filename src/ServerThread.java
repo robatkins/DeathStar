@@ -13,6 +13,8 @@ public class ServerThread extends Thread
 	Socket socket;
 	int bufferID = 0; 
 	String signalBuffer = null;
+	Scanner keyboard = new Scanner(System.in);
+	String userCommandBuffer;
 	
 	Queue<String> signalQueue = new Queue();
 	Stack<String> signalStack = new Stack();
@@ -23,6 +25,8 @@ public class ServerThread extends Thread
 		this.socket = socket;
 		
 	}
+	
+	
 	
 	public void run()
 	{
@@ -81,6 +85,7 @@ public class ServerThread extends Thread
 						connectionOutput.flush();
 						connectionOutput.println("scan internal network");
 						connectionOutput.flush();
+						
 					
 					
 					}

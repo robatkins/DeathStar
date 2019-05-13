@@ -26,17 +26,13 @@ public class Server
 	/*
 	 * main() method
 	 * 
-	 * 	
-	 * 
 	 */
-	
 	
 	public static void main(String[] args) throws IOException
 	{
 		
 		
-		System.out.print("Enter a port to listen on: ");
-		port = keyboard.nextInt();
+		portPrompt();
 		System.out.println();
 		System.out.println("Attempting to start the DEATHSTAR server...");
 		
@@ -45,17 +41,21 @@ public class Server
 		
 	}
 	
+	// prompt the user for the port the Server needs to listen on for connections
+	
+	public static void portPrompt()
+	{
+		
+		System.out.print("Enter a port to listen on: ");
+		port = keyboard.nextInt();
+		
+	}
 	
 	/*
 	 * 
 	 * runServer() method
 	 * 
-	 * 
-	 * 
-	 * 
 	 */
-	
-	
 	
 	public void runServer() throws IOException
 	{
