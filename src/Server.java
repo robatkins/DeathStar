@@ -78,11 +78,16 @@ public class Server
 		ServerSocket serverSocket = new ServerSocket(port);
 		System.out.println("The server is now waiting for connections...");
 		System.out.println();
-			while(doRun) //
+			
+			while(doRun) //WHILE THE SERVER IS RUNNING DO THIS LOOP
 			{
 			
+				
 				Socket socket = serverSocket.accept();
 				new ServerThread(socket).start();
+				//System.out.print("DEATHSTAR CMD SHELL: ");
+				//String userCommandBuffer = keyboard.next();
+				//System.out.println(userCommandBuffer);
 			
 			}
 		
