@@ -60,9 +60,9 @@ public class Client
 
 		try
 		{   System.out.println("                    ");
-			System.out.println("  -----|              ");
-			System.out.println("_______|____  |         ");
-			System.out.println("BORG Client|---               ");
+			System.out.println("              -----|              ");
+			System.out.println("_______|____             |         ");
+			System.out.println("IMPERIAL COMMAND TERMINAL|---               ");
 			System.out.println("___________|__________________      ");
 			System.out.println("//////////////               |   ");
 			System.out.println("Build Version: " + build + " |");
@@ -177,72 +177,19 @@ public class Client
 						}
 
 
+						
 
 						//Logic for when the Server requests a scan of the Clients internal network.
 						if(signalbuffer.equals("scan internal network"))
 						{
 
 							signalQueue.Dequeue();
+							
+							scanNetwork();
 
 
 
-							int timeout=100;
-
-							try
-							{
-
-
-
-								whatismyip = new URL("http://checkip.amazonaws.com");
-								BufferedReader whatismyipInput = new BufferedReader(new InputStreamReader(whatismyip.openStream()));
-
-
-								publicIpAddress = whatismyipInput.readLine();
-								System.out.println("Public IP Address of this machine: " + publicIpAddress);
-								System.out.println();
-								connectionOutput.println("Client has a public IP Address of: " + publicIpAddress);
-								connectionOutput.flush();
-								connectionOutput.println("Client Operating System is: " + System.getProperty("os.name"));
-								connectionOutput.flush();
-								connectionOutput.println("Client has an internal IP Address of: " + InetAddress.getLocalHost() );
-								connectionOutput.flush();
-								//connectionOutput.println("Client MAC Address: " + pIP);
-								//connectionOutput.flush();
-
-								connectionOutput.println("Client is sending the Server a survey of its internal network.");
-								connectionOutput.flush();
-
-
-							} catch (MalformedURLException exception)
-							{
-								exception.printStackTrace();
-							}
-
-							for (int i=1;i<255;i++) //change to 255 for full range.
-								{
-
-								   String host="192.168.1." + i;
-
-								   System.out.println("Scanning IP Address: " + host);
-
-							       if (InetAddress.getByName(host).isReachable(timeout)){
-
-							    	   System.out.println(host + " is up and running on the network: " + publicIpAddress);
-							    	   connectionOutput.println(host + " is up and running on the network: " + publicIpAddress);
-							           connectionOutput.flush();
-
-							       }
-
-
-
-
-
-							   }
-
-
-
-
-
+							
 
 
 
@@ -252,9 +199,20 @@ public class Client
 
 
 
+
+
+
+
+
+
+
 					}
 
+
+
 				}
+
+			
 
 
 
@@ -272,6 +230,62 @@ public class Client
 
 
 
+	}
+	
+	public static void scanNetwork() throws IOException
+	{
+		
+		int timeout=100;
+
+		String publicIpAddress = null;
+		try
+		{
+
+
+
+			whatismyip = new URL("http://checkip.amazonaws.com");
+			BufferedReader whatismyipInput = new BufferedReader(new InputStreamReader(whatismyip.openStream()));
+	
+
+
+			publicIpAddress = whatismyipInput.readLine();
+			System.out.println("Public IP Address of this machine: " + publicIpAddress);
+			System.out.println();
+			connectionOutput.println("Client has a public IP Address of: " + publicIpAddress);
+			connectionOutput.flush();
+			connectionOutput.println("Client Operating System is: " + System.getProperty("os.name"));
+			connectionOutput.flush();
+			connectionOutput.println("Client has an internal IP Address of: " + InetAddress.getLocalHost() );
+			connectionOutput.flush();
+			//connectionOutput.println("Client MAC Address: " + pIP);
+			//connectionOutput.flush();
+
+			connectionOutput.println("Client is sending the Server a survey of its internal network.");
+			connectionOutput.flush();
+
+
+		} catch (MalformedURLException exception)
+		{
+			exception.printStackTrace();
+		}
+
+		for (int i=1;i<255;i++) //change to 255 for full range.
+			{
+
+			   String host="192.168.1." + i;
+
+			   System.out.println("Scanning IP Address: " + host);
+
+		       if (InetAddress.getByName(host).isReachable(timeout))
+		       {
+
+		    	   System.out.println(host + " is up and running on the network: " + publicIpAddress);
+		    	   connectionOutput.println(host + " is up and running on the network: " + publicIpAddress);
+		           connectionOutput.flush();
+
+		       }
+			}
+		
 	}
 
 	public void setServerHost(String inputString)

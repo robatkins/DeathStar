@@ -12,7 +12,10 @@ public class Server
 	 */
 	
 	public static int port;
+	private static String serverHost;
 	boolean doRun = true;
+	private static URL whatismyip;
+
 	
 	public static Scanner keyboard = new Scanner(System.in);
 	
@@ -54,10 +57,20 @@ public class Server
 	public void runServer() throws IOException
 	{
 		
+		whatismyip = new URL("http://checkip.amazonaws.com");
+		BufferedReader whatismyipInput = new BufferedReader(new InputStreamReader(whatismyip.openStream()));
+
+
+		String publicIpAddress = whatismyipInput.readLine();
+		
 		
 		System.out.println("[The DEATHSTAR server has successfully started]");
+		System.out.println("-------------------------------------------------");
+		System.out.println("Public Internet Protocol Address: " + publicIpAddress);
 		ServerSocket serverSocket = new ServerSocket(port);
 		System.out.println("The server is now waiting for connections...");
+		System.out.println();
+		
 		
 		while(doRun) //
 		{
