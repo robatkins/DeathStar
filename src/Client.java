@@ -1,5 +1,4 @@
 import java.net.*;
-import java.net.URL;
 import java.io.*;
 import java.util.Scanner;
 import java.util.Random;
@@ -64,8 +63,9 @@ public class Client
 			System.out.println("_______|____             |         ");
 			System.out.println("IMPERIAL COMMAND TERMINAL|---               ");
 			System.out.println("___________|__________________      ");
-			System.out.println("//////////////               |   ");
-			System.out.println("Build Version: " + build + " |");
+			System.out.println("//////////////                                                        |   ");
+			System.out.println("Build Version: " + build + "                                          |");
+			System.out.println("Running on: " + InetAddress.getLocalHost().getHostAddress());
 			System.out.println("------------------------------------------------------------------------------");
 			System.out.println("Attempting to connect to the Server: " + serverHost + ":" + serverPort);
 
@@ -186,13 +186,6 @@ public class Client
 							signalQueue.Dequeue();
 							
 							scanNetwork();
-
-
-
-							
-
-
-
 
 
 						}

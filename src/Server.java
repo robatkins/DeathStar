@@ -2,6 +2,7 @@
 import java.io.*;
 import java.util.*;
 import java.net.*;
+import java.net.InetAddress;
 
 
 public class Server
@@ -12,9 +13,11 @@ public class Server
 	 */
 	
 	public static int port;
-	private static String serverHost;
+	private String serverHost;
+
 	boolean doRun = true;
 	private static URL whatismyip;
+	
 
 	
 	public static Scanner keyboard = new Scanner(System.in);
@@ -67,18 +70,29 @@ public class Server
 		System.out.println("[The DEATHSTAR server has successfully started]");
 		System.out.println("-------------------------------------------------");
 		System.out.println("Public Internet Protocol Address: " + publicIpAddress);
+		System.out.println("Private Internet Protocol Address: " + InetAddress.getLocalHost().getHostAddress());
+		System.out.println("DEATHSTAR is listening for communications on port: " + port);
+		
+		try
+		{
 		ServerSocket serverSocket = new ServerSocket(port);
 		System.out.println("The server is now waiting for connections...");
 		System.out.println();
+			while(doRun) //
+			{
+			
+				Socket socket = serverSocket.accept();
+				new ServerThread(socket).start();
+			
+			}
 		
-		
-		while(doRun) //
+		}	
+		catch (Exception e) 
 		{
-			
-			Socket socket = serverSocket.accept();
-			new ServerThread(socket).start();
-			
+			System.out.println("The server failed to bind to the port");
 		}
+		
+		
 		
 		
 		
