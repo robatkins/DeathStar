@@ -3,6 +3,7 @@ import java.io.*;
 import java.util.*;
 import java.net.*;
 import java.net.InetAddress;
+import java.sql.*;
 
 
 public class Server
@@ -31,7 +32,7 @@ public class Server
 	public static void main(String[] args) throws IOException
 	{
 		
-		
+		connectDatabaseDriver();
 		portPrompt();
 		System.out.println();
 		System.out.println("Attempting to start the DEATHSTAR server...");
@@ -39,6 +40,18 @@ public class Server
 		new Server().runServer();
 		
 		
+	}
+	
+	public static void connectDatabaseDriver()
+	{
+		try
+		{
+			Class.forName("oracle.jdbc.driver.OracleDriver"); //Load the Oracle JDBC driver
+		}
+		catch(ClassNotFoundException e)
+		{
+			System.out.println("Could not load the database driver");
+		}
 	}
 	
 	// prompt the user for the port the Server needs to listen on for connections
